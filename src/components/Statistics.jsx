@@ -1,5 +1,4 @@
-import React from "react";
-import { Display } from "./Display";
+import { StatisticLine } from "./StatisticLine";
 
 export const Statistics = (props) => {
   return (
@@ -9,12 +8,12 @@ export const Statistics = (props) => {
         <div> No feedback given</div>
       ) : (
         <>
-          <Display feedback={`good: ${props.good}`} />
-          <Display feedback={`neutral: ${props.neutral}`} />
-          <Display feedback={`bad: ${props.bad}`} />
-          <Display feedback={`all: ${props.total}`} />
-          <Display feedback={`average: ${props.average}`} />
-          <Display feedback={`positive: ${props.positive}%`} />
+          <StatisticLine text={`good: ${props.good}`} />
+          <StatisticLine text={`neutral: ${props.neutral}`} />
+          <StatisticLine text={`bad: ${props.bad}`} />
+          <StatisticLine text={`all: ${props.total}`} />
+          <StatisticLine text={`average: ${props.average}`} />
+          <StatisticLine text={`positive: ${props.positive}%`} />
         </>
       )}
     </div>
