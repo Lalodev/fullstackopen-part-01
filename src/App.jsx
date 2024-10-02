@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "./components/Button";
 import { Display } from "./components/Display";
+import { Statistics } from "./components/Statistics";
 
 const App = () => {
   const [good, setGood] = useState(0);
@@ -50,13 +51,14 @@ const App = () => {
       <Button onClick={handleClickNeutral} text="neutral" />
       <Button onClick={handleClickBad} text="bad" />
 
-      <h2>Statistics</h2>
-      <Display feedback={`good: ${good}`} />
-      <Display feedback={`neutral: ${neutral}`} />
-      <Display feedback={`bad: ${bad}`} />
-      <Display feedback={`all: ${total}`} />
-      <Display feedback={`average: ${average}`} />
-      <Display feedback={`positive: ${positive}%`} />
+      <Statistics
+        good={good}
+        neutral={neutral}
+        bad={bad}
+        total={total}
+        average={average}
+        positive={positive}
+      />
     </div>
   );
 };
