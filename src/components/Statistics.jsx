@@ -7,14 +7,46 @@ export const Statistics = (props) => {
       {props.total < 1 ? (
         <div> No feedback given</div>
       ) : (
-        <>
-          <StatisticLine text={`good: ${props.good}`} />
-          <StatisticLine text={`neutral: ${props.neutral}`} />
-          <StatisticLine text={`bad: ${props.bad}`} />
-          <StatisticLine text={`all: ${props.total}`} />
-          <StatisticLine text={`average: ${props.average}`} />
-          <StatisticLine text={`positive: ${props.positive}%`} />
-        </>
+        <table>
+          <tbody>
+            <tr>
+              <td>good</td>
+              <td>
+                <StatisticLine text={props.good} />
+              </td>
+            </tr>
+            <tr>
+              <td>neutral</td>
+              <td>
+                <StatisticLine text={props.neutral} />
+              </td>
+            </tr>
+            <tr>
+              <td>bad</td>
+              <td>
+                <StatisticLine text={props.bad} />
+              </td>
+            </tr>
+            <tr>
+              <td>all</td>
+              <td>
+                <StatisticLine text={props.total} />
+              </td>
+            </tr>
+            <tr>
+              <td>average</td>
+              <td>
+                <StatisticLine text={props.average} />
+              </td>
+            </tr>
+            <tr>
+              <td>positive</td>
+              <td>
+                <StatisticLine text={`${props.positive}%`} />
+              </td>
+            </tr>
+          </tbody>
+        </table>
       )}
     </div>
   );
