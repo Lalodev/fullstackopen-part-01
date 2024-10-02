@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "./components/Button";
 import { Statistics } from "./components/Statistics";
 import { Anecdotes } from "./components/Anecdotes";
+import { Introduction } from "./components/Introduction";
 
 const App = () => {
   // const [good, setGood] = useState(0);
@@ -46,7 +47,8 @@ const App = () => {
 
   return (
     <div>
-      <Anecdotes />
+      {/* <Anecdotes /> */}
+
       {/* <h2>Give feedback</h2>
       <Button onClick={handleClickGood} text="good" />
       <Button onClick={handleClickNeutral} text="neutral" />
@@ -60,6 +62,8 @@ const App = () => {
         average={average}
         positive={positive}
       /> */}
+
+      <Introduction />
     </div>
   );
 };
