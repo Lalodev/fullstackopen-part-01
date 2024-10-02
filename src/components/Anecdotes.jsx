@@ -23,17 +23,28 @@ export const Anecdotes = () => {
     6: 0,
     7: 0,
   });
+  const [winner, setWinner] = useState(0);
 
   const nextAnecdote = () => {
-    const anecdote = Math.floor(Math.random() * (7 - 0 + 1)) + 0;
+    const anecdote = Math.floor(Math.random() * anecdotes.length);
     setSelected(anecdote);
   };
 
   const vote = (voted) => {
-    setPoints((prevPoints) => ({
-      ...prevPoints,
-      [voted]: prevPoints[voted] + 1,
-    }));
+    setPoints((prevPoints) => {
+      const updatedPoints = {
+        ...prevPoints,
+        [voted]: prevPoints[voted] + 1,
+      };
+
+      const newWinner = Object.keys(updatedPoints).reduce((a, b) =>
+        updatedPoints[a] > updatedPoints[b] ? a : b
+      );
+
+      setWinner(newWinner);
+
+      return updatedPoints;
+    });
   };
 
   return (
@@ -42,6 +53,8 @@ export const Anecdotes = () => {
       <button onClick={nextAnecdote}>Next Anecdote</button>
       <button onClick={() => vote(selected)}>Vote</button>
       <p>{anecdotes[selected]}</p>
+      <h2>Anecdote with most votes</h2>
+      <p>{anecdotes[winner]}</p>
     </div>
   );
 };
